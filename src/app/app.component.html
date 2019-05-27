@@ -1,0 +1,76 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<header>
+
+    <div class="row main">
+      <div class="container">
+
+        <a routerLink="/"><h1 class="name">1.5<span class="blue-color">x</span>BET</h1></a>
+        <a (click)="pressedJoin()" class="button-join"><span *ngIf="clientService.user==null">Join</span> <span *ngIf="clientService.user!=null">Exit</span> </a>
+
+        <a routerLink="/sign-in" class="button-sign-in"><span *ngIf="clientService.user==null">Sign In</span> <span *ngIf="clientService.user!=null">Hello, {{clientService.user.name}}</span> </a>
+      <div class="clearfix"></div>
+    </div>
+
+  </div>
+
+  <div class="row headmenu">
+    <div class="container">
+      <nav class="navigation">
+        <ul>
+          <li><a class="nav" routerLink="/">Home</a></li>
+          <li><a class="nav" routerLink="/about-us">About Us</a></li>
+          <li><a class="nav" routerLink="/races">Races</a></li>
+          <li><a class="nav" routerLink="/contact-us">Contact Us</a></li>
+          <li><a class="nav" routerLink="/my-bets">Your Bets</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="crearfix"></div>
+  </div>
+
+</header>
+
+
+
+<router-outlet></router-outlet>
+
+
+
+<footer>
+  <div class="footer_bg">
+  </div>
+  <div class="footer">
+    <div class="container">
+      <div class="f_grid1">
+        <h3>About</h3>
+        <div class="fashpress"><a routerLink="/"><h1 class="name">1.5<span class="blue-color">x</span>BET</h1></a></div>
+        <div class="clearfix"></div>
+        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sollicitudin sem nec leo tempus fermentum. Integer consequat, turpis eget lobortis.</p>
+      </div>
+      <div class="coll-lg-6 coll-md-6 coll-sm-12 f_grid1 f_grid2">
+        <div>
+          <h3>Follow Us</h3>
+          <ul class="social">
+            <li><a href="#"> <i class="fb"> </i><p class="m_3">Facebook</p></a></li>
+            <li><a href="#"><i class="tw"> </i><p class="m_3">Twittter</p></a></li>
+            <li><a href="#"><i class="google"> </i><p class="m_3">Google</p></a></li>
+            <li><a href="#"><i class="instagram"> </i><p class="m_3">Instagram</p></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="f_grid3">
+        <h3>Contact Info</h3>
+        <ul class="list">
+          <li><p>Phone : 1.800.555.6789</p></li>
+          <li><p>Fax : 1.888.555.9876</p></li>
+          <li><p>Email : <a href="#"> letschat@11thagency.com</a></p></li>
+        </ul>
+        <ul class="list1">
+          <li><p>John Doe, Comapny Inc. 12345 North Main Street Anywhere, USA</p></li>
+        </ul>
+        <div class="clearfix"> </div>
+      </div>
+    </div>
+  </div>
+
+</footer>

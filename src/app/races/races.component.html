@@ -1,0 +1,38 @@
+<div class="main">
+  <div class="container">
+    <h2>Races</h2>
+
+
+
+
+
+    <div class="table">
+      <div class="table-header">
+        <div class="header__item"><a id="place" class="filter__link">Place</a></div>
+        <div class="header__item"><a id="date" class="filter__link filter__link--number">Date</a></div>
+        <div class="header__item"><a id="time" class="filter__link filter__link--number">Time</a></div>
+        <div class="header__item"><a id="distance" class="filter__link filter__link--number">Distance(m)</a></div>
+        <div class="header__item"><a id="winner" class="filter__link filter__link--number">Winner</a></div>
+        <div class="header__item" *ngIf="clientService.user&&clientService.user.login=='admin'"><a id="edit" class="filter__link filter__link--number" ></a></div>
+        <div class="header__item" *ngIf="clientService.user&&clientService.user.login=='admin'"><a id="delete" class="filter__link filter__link--number" ></a></div>
+
+
+      </div>
+      <div class="table-content">
+        <div  *ngFor="let race of races" class="table-row">
+          <div class="table-data"><a class="table-data" routerLink="/race/{{race.id}}">{{race.place}}</a></div>
+          <div class="table-data">{{raceService.formatDate(race.dateTime)}}</div>
+          <div class="table-data">{{race.dateTime.toLocaleTimeString()}}</div>
+          <div class="table-data">{{race.distance}}</div>
+          <div class="table-data">{{race.winner}}</div>
+          <div class="table-data edit" *ngIf="clientService.user&&clientService.user.login=='admin'"><a>Edit</a></div>
+          <div class="table-data delete" *ngIf="clientService.user&&clientService.user.login=='admin'" ><a (click)="deleteRace(race.id)">Delete</a></div>
+<!--          *ngIf="clientService.user&&clientService.user.login=='admin'"-->
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>

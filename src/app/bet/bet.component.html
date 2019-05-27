@@ -1,0 +1,35 @@
+<div class="main">
+  <div class="container">
+    <div class="title">
+      <h2>{{race.place}}</h2>
+      <h3 class="time-to-start"><span *ngIf="raceService.isAfter(race.dateTime)">Start</span> {{raceService.formatDate(race.dateTime)}} <span  *ngIf="raceService.isAfter(race.dateTime)"> at {{race.dateTime.toLocaleTimeString()}}</span></h3>
+    </div>
+    <div class="account" *ngIf="clientService.user!=null"><h2>Your Account: {{clientService.user.account.toFixed(2)}}</h2></div>
+    <div class="clearfix"></div>
+    <div class="rider"><p>{{rider.fullName}}</p></div>
+    <div class="bet">
+<!--      <p>-->
+      <div class="">
+
+          Your Bet:
+<!--      </p>-->
+        <input [(ngModel)]="bet" (change)="checkBet()" type="number" min="5" max="{{clientService.user!=null?clientService.user.account:999999}}">
+      </div>
+      <div class="">
+
+        Coefficient:
+        <!--      </p>-->
+        {{participant.coeff}}
+      </div>
+      <div class="">
+
+        Possible win:
+        <!--      </p>-->
+        {{(participant.coeff * (bet)).toFixed(2)}}
+      </div>
+      <div class="button" *ngIf="clientService.user!=null">
+        <button type="button" (click)="makeBet()">Make Money</button>
+      </div>
+    </div>
+  </div>
+</div>

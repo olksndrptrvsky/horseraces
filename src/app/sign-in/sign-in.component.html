@@ -1,0 +1,29 @@
+<div class="main">
+  <div class="confirm">
+    <div class="msg">
+      Login to the system
+    </div>
+    <form class="check" (ngSubmit)="checkUser(login.value, pass.value)">
+<!--    <div class="check">-->
+
+      <div class="email">
+        Login:<br>
+        <input type="text" required #login />
+      </div>
+      <div class="password">
+        Password:<br>
+        <input type="password" #pass required />
+      </div>
+        <button type="submit" class="submit"  id="submit">Sign In</button>
+
+<!--      <button type="submit" class="submit"  id="submit">Sign In</button>-->
+    </form>
+<!--    </div>-->
+
+    <div class="clearfix"></div>
+    <div class="forgot">
+      <a routerLink="/">Forgot Password</a>
+      <a (click)="getBack()">Back</a>
+    </div>
+  </div>
+</div>

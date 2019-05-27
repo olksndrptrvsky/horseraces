@@ -1,0 +1,38 @@
+<div class="main">
+  <div class="container">
+    <h2>My Bets</h2>
+
+
+
+
+
+    <div class="table">
+      <div class="table-header">
+        <div class="header__item"><a id="full-name" class="filter__link">Full Name</a></div>
+        <div class="header__item"><a id="place" class="filter__link">Place</a></div>
+        <div class="header__item"><a id="date" class="filter__link filter__link--number">Date</a></div>
+        <div class="header__item"><a id="time" class="filter__link filter__link--number">Time</a></div>
+        <div class="header__item"><a id="sum" class="filter__link filter__link--number">Sum</a></div>
+        <div class="header__item"><a id="coeff" class="filter__link filter__link--number">Coeff</a></div>
+        <div class="header__item" ><a id="state" class="filter__link filter__link--number">State</a></div>
+
+
+      </div>
+      <div class="table-content">
+        <div  *ngFor="let bet of bets" class="table-row">
+          <div class="table-data">{{bet.riderFullName}}</div>
+          <div class="table-data">{{bet.racePlace}}</div>
+          <div class="table-data">{{raceService.formatDate(bet.raceDateTime)}}</div>
+          <div class="table-data">{{bet.raceDateTime.toLocaleTimeString()}}</div>
+          <div class="table-data">{{bet.sum}}</div>
+          <div class="table-data">{{bet.coeff}}</div>
+          <div class="table-data" >{{bet.state}}</div>
+          <!--          *ngIf="clientService.user&&clientService.user.login=='admin'"-->
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>

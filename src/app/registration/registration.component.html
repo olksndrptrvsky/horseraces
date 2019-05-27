@@ -1,0 +1,28 @@
+<section class="main">
+  <div class="registration container">
+    <div id="reg-title">Registration</div>
+    <form (ngSubmit)="addUser(login.value, pass.value, name.value)">
+      <div class="block">
+        Login*<br>
+        <input type="text" name="name" placeholder="alex322" #login required />
+      </div>
+      <div class="block">
+        Name*<br>
+        <input type="text" name="name" placeholder="Alexander" #name required />
+      </div>
+      <div class="block">
+        Password*<br>
+        <input type="password" #pass required />
+      </div>
+      <div class="block">
+        Confirm password*<br>
+        <input type="password" required #confPass />
+      </div>
+      <div>
+        <button type="submit" name="Join" id="submit">Join</button>
+      </div>
+    </form>
+  </div>
+  <div class="clearfix"></div>
+
+</section>

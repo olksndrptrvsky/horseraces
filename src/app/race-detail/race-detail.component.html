@@ -1,0 +1,31 @@
+<div class="main">
+  <div class="container">
+    <div class="title">
+      <h2>{{race.place}}</h2>
+      <h3 class="time-to-start"><span *ngIf="raceService.isAfter(race.dateTime)">Start</span> {{raceService.formatDate(race.dateTime)}} <span  *ngIf="raceService.isAfter(race.dateTime)"> at {{race.dateTime.toLocaleTimeString()}}</span></h3>
+    </div>
+    <div class="clearfix"></div>
+    <div class="table">
+      <div class="table-header">
+        <div class="header__item"><a id="place" class="filter__link">Full Name</a></div>
+        <div class="header__item"><a id="date" class="filter__link filter__link--number">Horse Breed</a></div>
+        <div class="header__item"><a id="time" class="filter__link filter__link--number">Wins Count</a></div>
+        <div class="header__item"><a id="distance" class="filter__link filter__link--number">Coefficient</a></div>
+        <div class="header__item" *ngIf="clientService.user&&clientService.user.login=='admin'"><a id="edit" class="filter__link filter__link--number"></a></div>
+        <div class="header__item" *ngIf="clientService.user&&clientService.user.login=='admin'" ><a id="delete" class="filter__link filter__link--number" ></a></div>
+
+
+      </div>
+      <div class="table-content">
+        <div  *ngFor="let participant of participants" class="table-row">
+          <div class="table-data"><a class="table-data" routerLink="/race/{{race.id}}/participant/{{participant.id}}">{{findRider(participant.riderId).fullName}}</a></div>
+          <div class="table-data">{{findRider(participant.riderId).horseBreed}}</div>
+          <div class="table-data">{{findRider(participant.riderId).winsCount}}</div>
+          <div class="table-data">{{participant.coeff.toFixed(2)}}</div>
+          <div class="table-data edit" *ngIf="clientService.user&&clientService.user.login=='admin'"><a>Edit</a></div>
+          <div class="table-data delete" *ngIf="clientService.user&&clientService.user.login=='admin'"><a (click)="deleteParticipant(participant.id)" >Delete</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
